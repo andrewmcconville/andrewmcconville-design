@@ -8,6 +8,7 @@ Portfolio site featuring design work
 - Vue Router
 - Pinia
 - Node.js 22
+- GitHub Pages
 
 ## Additional Sites
 
