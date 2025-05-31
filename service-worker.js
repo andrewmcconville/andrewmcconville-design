@@ -1,7 +1,6 @@
 // This is a basic service worker for Vite + Vue 3 PWA offline support
 const CACHE_NAME = 'amc-design-cache-v1';
 const ASSETS = [
-  '/',
   '/andrewmcconville-design/',
   '/andrewmcconville-design/index.html',
   '/andrewmcconville-design/manifest.json',
@@ -12,7 +11,13 @@ const ASSETS = [
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))
+    caches.open(CACHE_NAME).then(cache =>
+      Promise.all(
+        ASSETS.map(asset => fetch(asset).then(response => {
+          if (response.ok) return cache.put(asset, response);
+        }).catch(() => {/* ignore failed asset */}))
+      )
+    )
   );
 });
 
