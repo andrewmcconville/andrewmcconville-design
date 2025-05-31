@@ -6,7 +6,7 @@ import { dirname, resolve } from 'path'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-const repoName = 'andrewmcconville-design' // ← your GitHub repo name
+const repoName = 'andrewmcconville-design'
 
 export default defineConfig({
   plugins: [vue()],
@@ -16,7 +16,10 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        ovenInterface: resolve(__dirname, 'oven-interface/index.html')
+        OvenInterface: resolve(__dirname, 'oven-interface/index.html'),
+        QTipGripUniversalDesign: resolve(__dirname, 'universal-design-q-tip-grip/index.html'),
+        StackOverflowUserResearch: resolve(__dirname, 'stack-overflow-user-research/index.html'),
+        AccuLynxUXEngineering: resolve(__dirname, 'ux-engineering/index.html'),
       }
     }
   }

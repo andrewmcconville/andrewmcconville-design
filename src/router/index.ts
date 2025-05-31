@@ -16,12 +16,12 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
-    path: '/universal-design-q-tip-grip',
+    path: '/universal-design-q-tip-grip/',
     name: 'QTipGripUniversalDesign',
     component: QTipGripUniversalDesign,
   },
   {
-    path: '/oven-interface',
+    path: '/oven-interface/',
     name: 'OvenInterfaceApplianceHMI',
     component: OvenInterfaceApplianceHMI,
     meta: {
@@ -29,12 +29,12 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
-    path: '/stack-overflow-user-research',
+    path: '/stack-overflow-user-research/',
     name: 'StackOverflowUserResearch',
     component: StackOverflowUserResearch,
   },
   {
-    path: '/ux-engineering',
+    path: '/ux-engineering/',
     name: 'AccuLynxUXEngineering',
     component: AccuLynxUXEngineering,
   },
