@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+    <meta name="robots" content="index, follow">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src * data:; script-src 'self'; style-src 'self' 'unsafe-inline'">
+
+    <meta name="application-name" content="Andrew McConville Design">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -37,6 +42,36 @@
     <!-- Chrome Android Manifest & Title Bar Color -->  
     <link rel="manifest" href="/andrewmcconville-design/manifest.json">
     <meta name="theme-color" content="#434957">
+    <meta name="color-scheme" content="light">
+    
+    <!-- Google -->
+    <link rel="canonical" href="https://andrewmcconville.github.io/andrewmcconville-design/">
+    <meta name="author" content="Andrew McConville">
+    <meta name="description" content="UX professional with a background in B2B SaaS applications.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Andrew McConville Design">
+    <meta property="og:description" content="UX professional with a background in B2B SaaS applications.">
+    <meta property="og:url" content="https://andrewmcconville.github.io/andrewmcconville-design/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://andrewmcconville.github.io/andrewmcconville-design/assets/about/home-social-media.png">
+    <meta property="og:image:secure_url" content="https://andrewmcconville.github.io/andrewmcconville-design/assets/about/home-social-media.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:height" content="1288">
+    <meta property="og:image:width" content="2400">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Andrew McConville">
+    <meta property="fb:app_id" content="227718953986524">
+    <meta property="article:author" content="https://www.facebook.com/andrew.d.mcconville">
+    <meta property="article:published_time" content="2018-03-02T18:00:00-05:00">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Andrew McConville Design">
+    <meta name="twitter:description" content="UX professional with a background in B2B SaaS applications.">
+    <meta name="twitter:image" content="https://andrewmcconville.github.io/andrewmcconville-design/assets/about/home-social-media.png">
+    <meta name="twitter:site" content="@drew_mcconville">
+    <meta name="twitter:creator" content="@drew_mcconville">
 
     <!-- JSON-LD Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -46,7 +81,7 @@
       "name": "Andrew McConville Design",
       "description": "UX professional with a background in B2B SaaS applications.",
       "image": "https://andrewmcconville.github.io/andrewmcconville-design/assets/about/home-social-media.png",
-      "url": "https://andrewmcconville.design/"
+      "url": "https://andrewmcconville.github.io/andrewmcconville-design/?url=%s"
     }
     </script>
 
@@ -70,5 +105,12 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/andrewmcconville-design/service-worker.js');
+        });
+      }
+    </script>
   </body>
 </html>
