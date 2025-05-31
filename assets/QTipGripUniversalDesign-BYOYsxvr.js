@@ -1,0 +1,1 @@
+import{c as e,_ as t,r as i}from"./index-DX9t1pQR.js";const n=e(t);n.use(i);i.isReady().then(()=>{const a=window.location.pathname;(a.endsWith("/universal-design-q-tip-grip/")||a.endsWith("/universal-design-q-tip-grip/index.html"))&&!window.location.hash&&i.replace({path:"/universal-design-q-tip-grip"}),n.mount("#app")});

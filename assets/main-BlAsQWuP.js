@@ -1,1 +1,0 @@
-import{c as t,r as a,_ as o}from"./index-BNYchidr.js";const e=t(o);e.use(a);a.isReady().then(()=>{const n=window.location.pathname;(n==="/andrewmcconville-design/"||n.endsWith("/index.html"))&&!window.location.hash&&a.replace({path:"/"}),e.mount("#app")});
