@@ -1,1 +1,0 @@
-import{c as t,_ as o,r as e}from"./index-B62G5PMF.js";const n=t(o);n.use(e);e.isReady().then(()=>{const a=window.location.pathname;(a.endsWith("/oven-interface/")||a.endsWith("/oven-interface/index.html"))&&!window.location.hash&&e.replace({path:"/oven-interface"}),n.mount("#app")});

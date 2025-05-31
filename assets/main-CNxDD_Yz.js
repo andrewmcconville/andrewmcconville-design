@@ -1,1 +1,0 @@
-import{c as n,r as a,_ as o}from"./index-B62G5PMF.js";const e=n(o);e.use(a);a.isReady().then(()=>{const t=window.location.pathname;(t==="/my-vue-mpa/"||t.endsWith("/index.html"))&&!window.location.hash&&a.replace({path:"/"}),e.mount("#app")});
