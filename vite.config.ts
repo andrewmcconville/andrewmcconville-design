@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { fileURLToPath } from 'url'
 import { dirname, resolve } from 'path'
+import htmlEnv from './vite-plugin-html-env'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -9,7 +10,12 @@ const __dirname = dirname(__filename)
 const repoName = 'andrewmcconville-design'
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    htmlEnv({
+      templatePath: 'src/templates/head.html'
+    })
+  ],
   base: `/${repoName}/`,
 
   build: {
