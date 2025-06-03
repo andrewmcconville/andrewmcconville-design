@@ -73,11 +73,22 @@ function replaceEnvVariables(content: string, pagePrefix: string, env: Record<st
   content = content.replace(/%VITE_FULL_URL%/g, () => {
     const baseUrl = env.VITE_BASE_URL || '';
     const canonical = env[`VITE_${pagePrefix}_CANONICAL`] || '';
+    
+    // For home page (empty canonical), return base URL without trailing slash
+    if (!canonical) {
+      return baseUrl;
+    }
+    
     let url = `${baseUrl}/${canonical}`;
     // Fix multiple slashes except after protocol
     url = url.replace(/([^:])\/\/+/g, '$1/');
-    // Remove trailing slash
-    url = url.replace(/\/$/, '');
+    
+    // For GitHub Pages, keep trailing slash for directories
+    // This prevents redirect loops
+    if (!url.endsWith('.html') && !url.endsWith('/')) {
+      url = url + '/';
+    }
+    
     return url;
   });
   
