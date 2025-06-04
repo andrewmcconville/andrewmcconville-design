@@ -1,4 +1,3 @@
-// scripts/copy-entry-template.js
 // Copies a single entry.html template to all subdirectory entry points for GitHub Pages
 
 import fs from 'fs';
@@ -8,7 +7,6 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Absolute path to the entry template
 const templatePath = path.resolve(__dirname, '../src/templates/entry.html');
 // List of subdirectory index.html targets
 const targets = [
