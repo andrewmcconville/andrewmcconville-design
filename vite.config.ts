@@ -7,8 +7,6 @@ import htmlEnv from './vite-plugin-html-env'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-const repoName = 'andrewmcconville-design'
-
 export default defineConfig({
   plugins: [
     vue(),
@@ -16,7 +14,7 @@ export default defineConfig({
       templatePath: 'src/templates/head.html'
     })
   ],
-  base: `/${repoName}/`,
+  base: process.env.VITE_REPO_NAME ? `/${process.env.VITE_REPO_NAME}/` : '/',
 
   build: {
     rollupOptions: {
