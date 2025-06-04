@@ -6,12 +6,6 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/andrewmcconville-design/service-worker.js');
-        });
-      }
-    </script>
+    <!-- @include ./src/templates/service-worker-register.html -->
   </body>
 </html>
