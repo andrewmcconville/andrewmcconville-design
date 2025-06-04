@@ -10,6 +10,10 @@ This guide explains how to add a new route (page/section) to the andrewmcconvill
 
 ## 2. Register the Route in Vue Router
 - Edit `src/router/index.ts`.
+- Import your component at the top:
+  ```ts
+  import MyNewPage from '../components/MyNewPage.vue';
+  ```
 - Add a new route object to the `routes` array:
   ```ts
   {
@@ -18,10 +22,6 @@ This guide explains how to add a new route (page/section) to the andrewmcconvill
     component: MyNewPage,
     // Optionally add meta: { title: 'My New Page' }
   },
-  ```
-- Import your component at the top:
-  ```ts
-  import MyNewPage from '../components/MyNewPage.vue';
   ```
 
 ## 3. Update the Root Component Map
@@ -43,20 +43,14 @@ This guide explains how to add a new route (page/section) to the andrewmcconvill
   path.resolve(__dirname, '../my-new-page/index.html'),
   ```
 
-## 5. Add a Navigation Link (Optional)
-- Edit `src/App.vue` to add a `<RouterLink>` for your new page:
-  ```vue
-  <li><RouterLink to="/my-new-page/">My New Page</RouterLink></li>
-  ```
+## 5. Add Directory to .gitignore
+- Add the generated directory to `.gitignore`.
 
-## 6. (Optional) Add Directory to .gitignore
-- If you do not want to track the generated directory in git, add it to `.gitignore`.
-
-## 7. Test Locally
+## 6. Test Locally
 - Run `npm run dev` to test the new route in development.
 - The script will generate the new directory and index.html as needed.
 
-## 8. Deploy
+## 7. Deploy
 - On push to `main`, the GitHub Action will generate the static entry point and deploy it to GitHub Pages.
 
 ---
@@ -66,7 +60,7 @@ This guide explains how to add a new route (page/section) to the andrewmcconvill
 - [ ] Register route in `src/router/index.ts`
 - [ ] Add to `pathComponentMap` in `src/main.ts`
 - [ ] Add to `targets` in `scripts/copy-entry-template.js`
-- [ ] Add navigation link in `src/App.vue` (optional)
+- [ ] Add directory to `.gitignore`
 - [ ] Test locally and deploy
 
 ---
@@ -76,4 +70,4 @@ This guide explains how to add a new route (page/section) to the andrewmcconvill
 - `src/router/index.ts` (add route)
 - `src/main.ts` (add to pathComponentMap)
 - `scripts/copy-entry-template.js` (add to targets)
-- `src/App.vue` (add navigation link)
+- `.gitignore` (create in directory)
