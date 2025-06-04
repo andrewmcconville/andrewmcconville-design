@@ -5,10 +5,15 @@
     "AccuLynx",
     "Accu",
     "QTipGrip",
+    "QTIP",
     "HMI",
     "tsbuildinfo",
     "andrewmcconville",
-    "Conville"
+    "mcconville",
+    "Conville",
+    "VITE",
+    "peaceiris",
+    "mstile"
   ],
   "ignorePaths": [
     "node_modules",
