@@ -1,1 +1,0 @@
-import{c as i,_ as t,r as n}from"./index-DX9t1pQR.js";const a=i(t);a.use(n);n.isReady().then(()=>{const e=window.location.pathname;(e.endsWith("/ux-engineering/")||e.endsWith("/ux-engineering/index.html"))&&!window.location.hash&&n.replace({path:"/ux-engineering"}),a.mount("#app")});

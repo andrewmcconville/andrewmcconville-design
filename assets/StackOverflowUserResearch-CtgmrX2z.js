@@ -1,1 +1,0 @@
-import{c as r,_ as o,r as e}from"./index-DX9t1pQR.js";const s=r(o);s.use(e);e.isReady().then(()=>{const a=window.location.pathname;(a.endsWith("/stack-overflow-user-research/")||a.endsWith("/stack-overflow-user-research/index.html"))&&!window.location.hash&&e.replace({path:"/stack-overflow-user-research"}),s.mount("#app")});
