@@ -1,0 +1,20 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "AccuLynx",
+    "Accu",
+    "QTipGrip",
+    "HMI",
+    "tsbuildinfo",
+    "andrewmcconville",
+    "Conville"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    "dist",
+    "public/assets",
+    "*.png",
+    "*.svg"
+  ]
+}
