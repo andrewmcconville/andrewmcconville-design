@@ -11,9 +11,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'Home',
     component: Home,
-    meta: {
-      title: 'Andrew McConville Design',
-    },
   },
   {
     path: '/universal-design-q-tip-grip/',
@@ -24,9 +21,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/oven-interface/',
     name: 'OvenInterfaceApplianceHMI',
     component: OvenInterfaceApplianceHMI,
-    meta: {
-      title: 'Oven Interface Appliance HMI',
-    },
   },
   {
     path: '/stack-overflow-user-research/',
