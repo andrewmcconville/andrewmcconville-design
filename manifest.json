@@ -60,7 +60,7 @@
 	"protocol_handlers": [
 		{
 			"protocol": "web+andrewmcconville",
-			"url": "https://andrewmcconville.github.io/andrewmcconville-design/?url=%s"
+			"url": "/andrewmcconville-design/?url=%s"
 		}
 	]
 }
