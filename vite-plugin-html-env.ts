@@ -18,11 +18,13 @@ const pageMapping: Record<string, string> = {
 
 export function htmlEnv(_options: HtmlEnvOptions = {}): Plugin {
   let env: Record<string, string> = {};
+  let mode: string = '';
   
   return {
     name: 'vite-plugin-html-env',
     configResolved(config) {
       env = loadEnv(config.mode, process.cwd(), '');
+      mode = config.mode;
     },
     transformIndexHtml: {
       order: 'pre',
@@ -39,7 +41,7 @@ export function htmlEnv(_options: HtmlEnvOptions = {}): Plugin {
             let templateContent = fs.readFileSync(fullPath, 'utf-8');
             
             // Replace environment variables in the template
-            templateContent = replaceEnvVariables(templateContent, pagePrefix, env);
+            templateContent = replaceEnvVariables(templateContent, pagePrefix, env, mode);
             
             return templateContent;
           }
@@ -48,7 +50,7 @@ export function htmlEnv(_options: HtmlEnvOptions = {}): Plugin {
         });
         
         // Also replace any remaining environment variables in the HTML
-        html = replaceEnvVariables(html, pagePrefix, env);
+        html = replaceEnvVariables(html, pagePrefix, env, mode);
         
         return html;
       }
@@ -56,7 +58,19 @@ export function htmlEnv(_options: HtmlEnvOptions = {}): Plugin {
   };
 }
 
-function replaceEnvVariables(content: string, pagePrefix: string, env: Record<string, string>): string {
+function replaceEnvVariables(content: string, pagePrefix: string, env: Record<string, string>, mode: string): string {
+  // In development, Vite automatically prepends its base path to absolute URLs
+  // So we replace /%VITE_REPO_NAME%/ with just / to create absolute paths
+  // In production, we need the full path with repo name
+  if (mode === 'development') {
+    // Replace with just / for absolute paths that Vite will process
+    content = content.replace(/\/%VITE_REPO_NAME%\//g, '/');
+  } else {
+    // In production, replace with the actual repo name
+    const assetBase = `/${env.VITE_REPO_NAME}`;
+    content = content.replace(/\/%VITE_REPO_NAME%\//g, `${assetBase}/`);
+  }
+  
   // Replace page-specific variables first
   content = content.replace(/%VITE_PAGE_(\w+)%/g, (match, varName) => {
     const envKey = `VITE_${pagePrefix}_${varName}`;
