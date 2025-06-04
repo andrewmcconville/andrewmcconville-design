@@ -1,20 +1,37 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
-import router from './router'
+import { createApp } from 'vue';
+import router from './router';
+import App from './App.vue';
+import OvenInterfaceApplianceHMI from './components/OvenInterfaceApplianceHMI.vue';
+import QTipGripUniversalDesign from './components/QTipGripUniversalDesign.vue';
+import StackOverflowUserResearch from './components/StackOverflowUserResearch.vue';
+import AccuLynxUXEngineering from './components/AccuLynxUXEngineering.vue';
 
-const app = createApp(App)
-app.use(router)
+// Map URL path prefixes to root components
+const pathComponentMap: Record<string, any> = {
+  '/oven-interface/': OvenInterfaceApplianceHMI,
+  '/universal-design-q-tip-grip/': QTipGripUniversalDesign,
+  '/stack-overflow-user-research/': StackOverflowUserResearch,
+  '/ux-engineering/': AccuLynxUXEngineering,
+};
+
+const pathname = window.location.pathname;
+const matched = Object.entries(pathComponentMap).find(([prefix]) =>
+  pathname.startsWith(prefix)
+);
+const RootComponent = matched ? matched[1] : App;
+
+const app = createApp(RootComponent);
+app.use(router);
 
 router.isReady().then(() => {
-  const pathname = window.location.pathname
-  
-  if (
-    (pathname === '/andrewmcconville-design/' || pathname.endsWith('/index.html')) &&
-    !window.location.hash
-  ) {
-    router.replace({ path: '/' })
+  // Normalize route for each section
+  if (matched) {
+    const base = matched[0];
+    if ((pathname.endsWith(base) || pathname.endsWith(base + 'index.html')) && !window.location.hash) {
+      router.replace({ path: base.replace(/\/$/, '') });
+    }
+  } else if ((pathname === '/andrewmcconville-design/' || pathname.endsWith('/index.html')) && !window.location.hash) {
+    router.replace({ path: '/' });
   }
-  // 4. Mount the app
-  app.mount('#app')
-})
+  app.mount('#app');
+});
