@@ -107,5 +107,13 @@
   </head>
   <body>
     <div id="app">Oven Interface</div>
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/andrewmcconville-design/service-worker.js');
+    });
+  }
+</script>
+
   </body>
 </html>
